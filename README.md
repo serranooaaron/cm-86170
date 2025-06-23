@@ -1,2 +1,2 @@
-# cm-86170
-CoderHouse - Javascript Class
+Comision 86170.
+Repositorio para los trabajos de CoderHouse.
