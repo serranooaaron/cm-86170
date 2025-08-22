@@ -1,0 +1,73 @@
+<!-- 
+ * Trabajo de entrega 2 
+ * Area de un triangulo - Base x Altura / 2 
+ * 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrega Final - JS - Figuras Geométricas</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="icon" type="image/x-icon" href="./style/favicon.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Entrega Final | Figuras Geométricas</h1>
+    </header>
+    <main>
+      <section>
+        <div>
+          <form action="" class="formulario" id="formulario">
+            <select name="figura" id="figura">
+              <option value="" selected>--- Selecciona una figura ---</option>
+              <option value="triangulo">Triángulo</option>
+              <option value="cuadrado">Cuadrado</option>
+              <option value="rectangulo">Rectángulo</option>
+            </select>
+
+            <label for="nombre">Nombre de usuario:</label>
+            <input type="text" id="nombre" placeholder="Ingresa tu nombre" />
+
+            <label for="base" id="Et-base">Base del triángulo:</label>
+            <input
+              type="number"
+              id="base"
+              placeholder="Ingresa la base"
+              style="display: none"
+            />
+            <label for="altura" id="Et-altura">Altura del triángulo:</label>
+            <input
+              type="number"
+              id="altura"
+              placeholder="Ingresa la altura"
+              style="display: none"
+            />
+            <label for="lado" id="Et-lado">Lado del cuadrado:</label>
+            <input
+              type="number"
+              id="lado"
+              placeholder="Ingresa el lado"
+              style="display: none"
+            />
+            <button type="submit">Calcular área</button>
+            <button type="button" id="limpiar">Limpiar</button>
+            <p id="resultado"></p>
+          </form>
+        </div>
+      </section>
+      <section id="tablas">
+        <table>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+    <footer>
+      <p>El profe Javi es un crack</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Aptos-Narrow", sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
+}
+header {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+main {
+  flex: 1;
+
+  padding: 20px;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  flex: 1;
+
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.tablas {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+}
+.formulario {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  flex-direction: center;
+  gap: 8px;
+}
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+footer {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  justify-content: center;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+th {
+  background-color: #4caf50;
+  color: white;
+}
