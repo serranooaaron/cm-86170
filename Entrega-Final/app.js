@@ -169,6 +169,17 @@ document.addEventListener("DOMContentLoaded", () => {
   //Inicializar display vacio.
   displayFiguras("");
 
+  // Cargar usuarios guardados del local storage al cargar la pagina
+  // Utilizando localstorage podemos almacenar los datos en nuestro navegador.
+  // Logrando que al cargar sigan estando los datos.
+  const usuariosGuardados = localStorage.getItem("usuarios");
+  if (usuariosGuardados) {
+    // Convierte el string de vuelta a un arreglo
+    usuario = JSON.parse(usuariosGuardados);
+    // Mostrar datos guardados en la tabla
+    MostrarTabla(usuario);
+  }
+
   Selectfigura.addEventListener("change", (e) => {
     displayFiguras(e.target.value);
   });
@@ -208,6 +219,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Mostrar los datos en la consola en formato de tabla
     console.table(usuario);
+
+    // Guarda el arreglo como un string
+    localStorage.setItem("usuarios", JSON.stringify(usuario));
 
     // Mostrar la tabla en el HTML
     MostrarTabla(usuario);
