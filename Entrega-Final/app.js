@@ -4,9 +4,9 @@ const apiKey = "e8bc46b15a1df04ef647d72cac7d7804";
 async function ObtenerClima(lat, long) {
   try {
     const respuesta = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric&lang=es`
     );
-
+    // * Se agrega lang=es para obtener los datos en español
     // * &units=metric obtiene los datos en grados Celsius
     // * Sin esa opción, los datos se obtienen en Kelvin
 
