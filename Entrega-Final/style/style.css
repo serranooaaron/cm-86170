@@ -92,3 +92,6 @@ th {
   font-size: 1rem;
   font-weight: bold;
 }
+.oculto {
+  display: none;
+}
