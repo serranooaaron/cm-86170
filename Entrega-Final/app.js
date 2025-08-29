@@ -1,5 +1,63 @@
 let usuario = [];
 
+const apiKey = "e8bc46b15a1df04ef647d72cac7d7804";
+async function ObtenerClima(lat, long) {
+  try {
+    const respuesta = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`
+    );
+
+    // * &units=metric obtiene los datos en grados Celsius
+    // * Sin esa opción, los datos se obtienen en Kelvin
+
+    const datos = await respuesta.json();
+    console.log(datos);
+    const climadiv = document.getElementById("clima");
+
+    if (datos.cod == 200) {
+      const temp = datos.main.temp;
+      const ciudad = datos.name; // Nombre de la ciudad
+      const humedad = datos.main.humidity;
+      // Obtener descripción del clima
+      const descripcion = datos.weather[0].description;
+      climadiv.innerHTML = `
+        <h2>🌤️Clima en ${ciudad}</h2>
+        <p>🌡️Temperatura: ${temp.toFixed(2)} °C</p>
+        <p>💧Humedad: ${humedad}%</p>
+        <p>📝Descripción: ${descripcion}</p>
+      `;
+    } else {
+      climadiv.innerHTML = "<p> Error: " + datos.message + "</p>";
+    }
+  } catch (error) {
+    console.error("Error al obtener los datos del clima:", error);
+    document.getElementById("clima").innerHTML =
+      "<p>Error al obtener los datos del clima.</p>";
+  }
+}
+
+function ObtenerUbicacion() {
+  if (navigator.geolocation) {
+    // Solicitar permiso para acceder a la ubicación del usuario
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        //Funcion de exito: Se ejecuta cuando se obtiene la ubicación / da permiso el usuario
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
+        ObtenerClima(lat, long);
+      },
+      //Funcion de error: Se ejecuta si el usuario no da permiso o hay algun problema
+      (error) => {
+        console.error("Error al obtener la ubicación:", error);
+        document.getElementById("clima").innerHTML =
+          "<p>No se pudo obtener la ubicación. Asegúrate de permitir el acceso a la ubicación.</p>";
+      }
+    );
+  } else {
+    console.error("Geolocalización no es compatible con este navegador.");
+  }
+}
+
 function MostrarTabla(usuario) {
   // Genero headers previamente
   let headers = `
@@ -161,6 +219,8 @@ function displayFiguras(figuras) {
   }
 }
 
+//Llamada a la funcion de clima/ubicacion
+document.addEventListener("DOMContentLoaded", ObtenerUbicacion);
 // Acceso al Dom
 document.addEventListener("DOMContentLoaded", () => {
   const formulario = document.getElementById("formulario");
